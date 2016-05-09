@@ -1,0 +1,8 @@
+{
+  "name": "TrivialServer",
+  "version": "0.0.1",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "express": "^4.13.4"
+  }
+}
