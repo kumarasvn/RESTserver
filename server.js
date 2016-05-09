@@ -91,6 +91,15 @@ app.delete('/:key/:id', function(req, res) {
     res.send();
 });
 
+app.options('/*', function(req, res){
+    console.log('options...');
+    res.status(200);
+    res.set('Access-Control-Allow-Origin', '*');
+    res.set('Access-Control-Allow-Method', 'GET, POST, PUT, DELETE, OPTIONS');
+    res.set('Access-Control-Allow-Headers', 'Content-Type, Accept');
+    res.send();
+});
+
 app.listen(8080);
 
 console.log('Express listening on port 8080');
