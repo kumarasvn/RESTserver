@@ -26,6 +26,7 @@ app.get('/', function(req, res){
             rv.push('/' + k);
         }
     }
+    res.set('Access-Control-Allow-Origin', '*');
     res.status(200);
     res.json(rv);
 });
@@ -38,6 +39,7 @@ app.get('/:key', function(req, res){
         status = 200;
         rv = data[key];
     }
+    res.set('Access-Control-Allow-Origin', '*');
     res.status(status);
     res.json(rv);
 });
@@ -46,6 +48,7 @@ app.get('/:key/:id', function(req, res) {
     let id = parseInt(req.params.id);
     let key = req.params.key;
     console.log('GET /' + key + '/' + id);
+    res.set('Access-Control-Allow-Origin', '*');
     res.json(data[key][id]);
 });
 
@@ -56,9 +59,9 @@ app.post('/:key', function(req, res) {
     data[key][id] = req.body;
     res.set('Location', '/' + key + '/' + id);
     res.status(201);
+    res.set('Access-Control-Allow-Origin', '*');
     res.send();
 });
-
 
 app.put('/:key/:id', function(req, res) {
     let id = parseInt(req.params.id);
@@ -70,6 +73,7 @@ app.put('/:key/:id', function(req, res) {
         status = 200;
     }
     res.status(status);
+    res.set('Access-Control-Allow-Origin', '*');
     res.send();
 });
 
@@ -83,6 +87,7 @@ app.delete('/:key/:id', function(req, res) {
         status = 204;
     }
     res.status(status);
+    res.set('Access-Control-Allow-Origin', '*');
     res.send();
 });
 
